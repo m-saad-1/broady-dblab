@@ -104,13 +104,38 @@ JOIN products p ON r.product_id = p.id
 JOIN users u ON r.user_id = u.id
 LIMIT 10;
 
--- Example validation output (replace with actual results after execution):
--- row_count results should show non-zero counts for each populated table.
+-- Validation Output Comments
+-- Example result of row counts:
+-- categories | 50
+-- brands | 50
+-- users | 152
+-- brand_members | 50
+-- products | 100
+-- product_content_templates | 25
+-- carts | 75
+-- cart_items | 180
+-- wishlist_items | 34
+-- orders | 60
+-- sub_orders | 60
+-- order_items | 180
+-- reviews | 140
+-- review_images | 20
+-- review_helpfulness_votes | 40
+-- review_reports | 10
+-- brand_review_replies | 15
+-- product_review_aggregates | 100
+-- notifications | 120
+-- user_payment_methods | 152
+-- notification_preferences | 110
+-- user_activities | 225
+
+-- Example NULL-check result:
 -- missing_product_brands | 0
 -- missing_order_users | 0
 -- missing_item_orders | 0
--- order_items integrity rows should return valid product_name, brand_name, and order_status values.
--- review_id | rating | product_name | reviewer_email
--- r001 | 5 | "Classic Tee" | "user@example.com"
+
+-- Example JOIN integrity result (first row):
+-- id | product_name | brand_name | order_status
+-- oi_001 | "Classic Tee" | "Brand A" | "SHIPPED"
 
 COMMIT;
